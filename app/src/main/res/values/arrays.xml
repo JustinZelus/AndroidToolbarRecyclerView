@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="menu_3_button_Titles">
+        <item>OFF Line</item>
+        <item>ON Line</item>
+        <item>Setup</item>
+    </array>
+
+    <array name="menu_2_button_Titles">
+        <item>Sample</item>
+        <item>User Library</item>
+    </array>
+
+    <array name="menu_3_button_Colors">
+        <item>#757575</item>
+        <item>#2196F3</item>
+        <item>#BBDEFB</item>
+    </array>
+
+    <array name="directoryColors">
+        <item>#BBDEFB</item>
+        <item>#ffffff</item>
+    </array>
+
+    <integer-array name="directoryRipples">
+        <item>@drawable/ripple_directory_0</item>
+        <item>@drawable/ripple_directory_1</item>
+    </integer-array>
+
+    <integer-array name="menu_3_button_Ripples">
+        <item>@drawable/ripple_offline</item>
+        <item>@drawable/ripple_online</item>
+        <item>@drawable/ripple_setup</item>
+    </integer-array>
+
+    <integer-array name="menu_2_button_Ripples">
+        <item>@drawable/ripple_sample</item>
+        <item>@drawable/ripple_user_library</item>
+    </integer-array>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Follow Material Design guideline, app' colors are generated from https://www.materialpalette.com/blue/green -->
+    <!-- These are demo color , you can set your own -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorPrimaryLight">#BBDEFB</color>
+    <color name="colorSecondary">#757575</color>
+    <color name="colorAccent">#4CAF50</color>
+
+    <!--According to Material Design , ripple's colors is 26% alpha of it's color-->
+    <color name="colorPrimary_alpha26">#422196F3</color>
+    <color name="colorPrimaryLight_alpha26">#42BBDEFB</color>
+    <color name="colorSecondary_alpha26">#42757575</color>
+
+    <color name="white">#ffffff</color>
+</resources>

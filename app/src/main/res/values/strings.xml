@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Kawasaki</string>
+    <string name="title_menu_3_button">Menu</string>
+    <string name="title_menu_2_button">Menu</string>
+    <string name="title_directory_kxf">Please select</string>
+    <string name="title_directory_sample">Please select</string>
+    <string name="title_directory_user_library">Please select</string>
+</resources>

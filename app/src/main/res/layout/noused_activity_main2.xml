@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="jzstudio.com.constraintlayout.MainActivity">
+
+    <TextView
+        android:id="@+id/btn_offline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#757575"
+        android:gravity="center"
+        android:text="OFF Line"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/btn_online"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="ON Line"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+    <TextView
+        android:id="@+id/btn_setup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BBDEFB"
+        android:gravity="center"
+        android:text="Setup"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="ON Line"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BBDEFB"
+        android:gravity="center"
+        android:text="Setup"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="ON Line"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+</LinearLayout>

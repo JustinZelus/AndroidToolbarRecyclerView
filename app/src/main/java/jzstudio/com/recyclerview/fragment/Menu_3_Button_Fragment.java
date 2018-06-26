@@ -1,7 +1,9 @@
 package jzstudio.com.recyclerview.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,12 +18,15 @@ import android.widget.TextView;
 
 import com.jzstudio.toolbar.recyclerview.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.Pages;
 import jzstudio.com.recyclerview.adapter.MenuAdapter;
 
 import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
-import jzstudio.com.recyclerview.model.MyMenu;
+import jzstudio.com.recyclerview.model.Menu;
 
 
 /**
@@ -36,20 +41,31 @@ public class Menu_3_Button_Fragment extends Fragment implements RecyclerViewClic
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-    MyMenu myDataset;
+//    MyMenu myDataset;
     Context context;
+
+    List<Menu> mData = new ArrayList<>();
+
+    @SuppressLint("ResourceType")
+    public void initModel() {
+        /** menu頁面預設3顆按鈕，按鈕的標題及顏色可在xml裡更改 */
+        Resources resources = context.getResources();
+        String[] titles = resources.getStringArray(R.array.menu_3_button_Titles);
+        TypedArray backgrounds = resources.obtainTypedArray(R.array.menu_3_button_Ripples);
+
+        for(int i = 0; i < titles.length; i++) {
+            mData.add(new Menu( titles[i] , backgrounds.getDrawable(i)));
+        }
+    }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-
-
-
-
-        Resources resources = context.getResources();
-        /** menu頁面預設3顆按鈕，按鈕的標題及顏色可在xml裡更改 */
-        myDataset = new MyMenu(resources.getStringArray(R.array.menu_3_button_Titles),resources.obtainTypedArray(R.array.menu_3_button_Ripples));
+        initModel();
+//        myDataset = new MyMenu(resources.getStringArray(R.array.menu_3_button_Titles),resources.obtainTypedArray(R.array.menu_3_button_Ripples));
 
     }
 
@@ -62,10 +78,10 @@ public class Menu_3_Button_Fragment extends Fragment implements RecyclerViewClic
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false); //版面設置為橫向
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MenuAdapter(myDataset,(MainActivity) getContext(),this);
+        mAdapter = new MenuAdapter(mData, (MainActivity) getContext(),this);
         mRecyclerView.setAdapter(mAdapter);
 
-        /**action bar 標題更新*/
+        /** action bar 標題更新 */
         MainActivity.Instance.updateToolbar(Pages.MENU_3_BUTTON);
 
         return v;
@@ -84,19 +100,17 @@ public class Menu_3_Button_Fragment extends Fragment implements RecyclerViewClic
     //Offline,Online,Setup 三顆按鈕的響應
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-        int pos = position;
+        Log.d("recyclerViewItemClicked","position - " + position+ " , " + ((TextView)v).getText() + "\r\n");
         Fragment des = null;
         switch(position) {
             case 0:
-                des = new Directory_KXF_Fragment();
+                des = new OFFLine_Fragment();
                 break;
             case 1:
                 break;
             case 2:
                 break;
         }
-
-        Log.d("recyclerViewItemClicked","position - " + pos+ " , " + ((TextView)v).getText() + "\r\n");
 
         if(des != null)
             MainActivity.Instance.switchFragment(this,des);

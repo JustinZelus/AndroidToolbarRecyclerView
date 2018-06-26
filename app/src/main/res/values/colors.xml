@@ -7,7 +7,7 @@
     <color name="colorPrimaryLight">#BBDEFB</color>
     <color name="colorSecondary">#757575</color>
     <color name="colorAccent">#4CAF50</color>
-
+    <color name="colorDivider">#BDBDBD</color>
     <!--According to Material Design , ripple's colors is 26% alpha of it's color-->
     <color name="colorPrimary_alpha26">#422196F3</color>
     <color name="colorPrimaryLight_alpha26">#42BBDEFB</color>

@@ -10,10 +10,12 @@ import android.widget.TextView;
 
 import com.jzstudio.toolbar.recyclerview.R;
 
+import java.util.List;
+
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
 
-import jzstudio.com.recyclerview.model.OffLine;
+import jzstudio.com.recyclerview.model.Directory;
 
 /**
  * Created by icm_mobile on 2018/6/22.
@@ -21,7 +23,7 @@ import jzstudio.com.recyclerview.model.OffLine;
 
 public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.ViewHolder> {
 
-    OffLine mDataset;
+    List<Directory> mData;
     int width = 0;
     Context context;
     static RecyclerViewClickListener mRecyclerViewClickListener;
@@ -44,8 +46,8 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
 
 
 
-    public DirectoryAdapter(OffLine mDataset, MainActivity activity, RecyclerViewClickListener mRecyclerViewClickListener) {
-        this.mDataset = mDataset;
+    public DirectoryAdapter(List<Directory> mData, MainActivity activity, RecyclerViewClickListener mRecyclerViewClickListener) {
+        this.mData = mData;
         this.context = activity;
         this.mRecyclerViewClickListener = mRecyclerViewClickListener;
     }
@@ -60,15 +62,22 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.mTextView.setText(mDataset.getTitle(position));
-        holder.mTextView.setBackground(mDataset.getBackground(position % 2));
+        holder.mTextView.setText(mData.get(position).getTitle());
+        holder.mTextView.setBackground(mData.get(position).getBackground());
+//        holder.mTextView.setBackground( (position % 2) == 0 ? mData.get(position).getBackground_0() : mData.get(position).getBackground_1());
 
 
     }
 
+    public void removeItem(int position) {
+        mData.remove(position);
+
+        notifyItemRemoved(position);
+    }
+
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mData.size();
     }
 
 

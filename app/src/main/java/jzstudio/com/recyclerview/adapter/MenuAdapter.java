@@ -11,9 +11,11 @@ import android.widget.TextView;
 
 import com.jzstudio.toolbar.recyclerview.R;
 
+import java.util.List;
+
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
-import jzstudio.com.recyclerview.model.MyMenu;
+import jzstudio.com.recyclerview.model.Menu;
 
 
 /**
@@ -22,7 +24,7 @@ import jzstudio.com.recyclerview.model.MyMenu;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
-    MyMenu mDataset;
+    List<Menu> mData;
     int width = 0;
     Context context;
     static RecyclerViewClickListener mRecyclerViewClickListener;
@@ -45,8 +47,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
 
 
-    public MenuAdapter(MyMenu mDataset, MainActivity activity, RecyclerViewClickListener mRecyclerViewClickListener) {
-        this.mDataset = mDataset;
+    public MenuAdapter(List<Menu> mData, MainActivity activity, RecyclerViewClickListener mRecyclerViewClickListener) {
+        this.mData = mData;
         this.context = activity;
         this.mRecyclerViewClickListener = mRecyclerViewClickListener;
         /* 取屏幕的寬度來計算按鈕的寬*/
@@ -66,9 +68,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.mTextView.setText(mDataset.getTitles()[position]);
-        holder.mTextView.getLayoutParams().width = width/mDataset.size();
-        holder.mTextView.setBackground(mDataset.getBackground(position));
+        holder.mTextView.setText(mData.get(position).getTitle());
+        holder.mTextView.getLayoutParams().width = width/mData.size();
+        holder.mTextView.setBackground(mData.get(position).getBackground());
         //        holder.mTextView.setBackgroundColor(mDataset.getColors()[position]);
 
 
@@ -93,7 +95,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mData.size();
     }
 
 

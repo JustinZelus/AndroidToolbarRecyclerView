@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
+    <!-- offline 頁面資料夾名稱 -->
+    <array name="offline_directory_name">
+        <item>\'09~\'11 KX450F</item>
+        <item>\'11~\'12 KX250F</item>
+        <item>\'12 KX450F</item>
+        <item>\'13 KX250F</item>
+        <item>\'13~\'15 KX450F</item>
+        <item>\'14 KX250F</item>
+        <item>\'16 KX450F</item>
+        <item>test1</item>
+        <item>test2</item>
+        <item>test3</item>
+        <item>test4</item>
+        <item>test5</item>
+    </array>
+
+    <!-- sample 頁面資料夾名稱 -->
+    <array name="sample_directory_name">
+        <item>Advanced Ignition Setting</item>
+        <item>Beginner</item>
+        <item>Hard Riding Surface</item>
+        <item>Leaner Fuel Setting</item>
+        <item>Retarded Ignition Setting</item>
+        <item>Richer Fuel Setting</item>
+        <item>Soft Riding Surface</item>
+    </array>
+
+    <!-- user library 頁面資料夾名稱 -->
+    <array name="user_library_directory_name">
+        <item>Advanced Ignition Setting</item>
+        <item>Default</item>
+        <item>Hard Riding Surface</item>
+        <item>Richer Fuel Setting</item>
+    </array>
+
+
     <array name="menu_3_button_Titles">
         <item>OFF Line</item>
         <item>ON Line</item>
@@ -18,8 +56,8 @@
     </array>
 
     <array name="directoryColors">
-        <item>#BBDEFB</item>
-        <item>#ffffff</item>
+        <item>@color/colorPrimaryLight</item>
+        <item>@color/colorDivider</item>
     </array>
 
     <integer-array name="directoryRipples">

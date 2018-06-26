@@ -84,6 +84,37 @@ public class MainActivity extends AppCompatActivity {
         switchFragment(new Menu_3_Button_Fragment());
     }
 
+    public void switchFragment(Fragment destFragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(!destFragment.isAdded())
+            fragmentTransaction.add(R.id.fragment_container,destFragment);
+//        else
+//            fragmentTransaction.replace(R.id.fragment_container,destFragment);
+        fragmentTransaction.commit();
+    }
+
+    boolean needToAddBackStack = true;
+    boolean needAnimation = true;
+
+    public void switchFragment(Fragment from , Fragment to) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(needAnimation)
+            fragmentTransaction.setCustomAnimations(R.anim.fade_in,R.anim.fade_out); //必須用自定義動畫才有效果，原因https://www.e-learn.cn/content/wangluowenzhang/89903
+        if(from.isAdded())
+            fragmentTransaction.replace(R.id.fragment_container,to);
+        //將當前fragment加入stack，讓下一個頁面可退回上一頁。若沒加，則當前fragment會被銷毀。
+        if(needToAddBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.commit();
+    }
+
+
+
+
+
     public List<String> getDirectory_Names_KXF() {
         List<String> data = new ArrayList<>();
         if(data.size() <= 0) {
@@ -122,32 +153,5 @@ public class MainActivity extends AppCompatActivity {
             data.add("Default");
         }
         return data;
-    }
-
-    public void switchFragment(Fragment destFragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if(!destFragment.isAdded())
-            fragmentTransaction.add(R.id.fragment_container,destFragment);
-//        else
-//            fragmentTransaction.replace(R.id.fragment_container,destFragment);
-        fragmentTransaction.commit();
-    }
-
-    boolean needToAddBackStack = true;
-    boolean needAnimation = true;
-
-    public void switchFragment(Fragment from , Fragment to) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if(needAnimation)
-            fragmentTransaction.setCustomAnimations(R.anim.fade_in,R.anim.fade_out); //必須用自定義動畫才有效果，原因https://www.e-learn.cn/content/wangluowenzhang/89903
-        if(from.isAdded())
-            fragmentTransaction.replace(R.id.fragment_container,to);
-        //將當前fragment加入stack，讓下一個頁面可退回上一頁。若沒加，則當前fragment會被銷毀。
-        if(needToAddBackStack) {
-            fragmentTransaction.addToBackStack(null);
-        }
-        fragmentTransaction.commit();
     }
 }

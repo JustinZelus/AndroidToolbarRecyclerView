@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--ripple 的顏色設為灰色效果最明顯，因為底圖是白色-->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#727272"
+    android:color="#ffffff"
     >
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/white">
+            <solid android:color="@color/colorDivider">
             </solid>
         </shape>
     </item>

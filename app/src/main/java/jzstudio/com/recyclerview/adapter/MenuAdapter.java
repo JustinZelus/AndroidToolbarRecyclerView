@@ -14,7 +14,7 @@ import com.jzstudio.toolbar.recyclerview.R;
 import java.util.List;
 
 import jzstudio.com.recyclerview.MainActivity;
-import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
+import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 import jzstudio.com.recyclerview.model.Menu;
 
 
@@ -24,10 +24,10 @@ import jzstudio.com.recyclerview.model.Menu;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
-    List<Menu> mData;
     int width = 0;
+    List<Menu> mData;
     Context context;
-    static RecyclerViewClickListener mRecyclerViewClickListener;
+    static IRecyclerViewClickListener mRecyclerViewClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -47,7 +47,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
 
 
-    public MenuAdapter(List<Menu> mData, MainActivity activity, RecyclerViewClickListener mRecyclerViewClickListener) {
+    public MenuAdapter(List<Menu> mData, MainActivity activity, IRecyclerViewClickListener mRecyclerViewClickListener) {
         this.mData = mData;
         this.context = activity;
         this.mRecyclerViewClickListener = mRecyclerViewClickListener;

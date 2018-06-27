@@ -26,7 +26,7 @@ import java.util.List;
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.Pages;
 import jzstudio.com.recyclerview.adapter.DirectoryAdapter;
-import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
+import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 import jzstudio.com.recyclerview.model.Directory;
 import jzstudio.com.recyclerview.custom.*;
 
@@ -34,7 +34,7 @@ import jzstudio.com.recyclerview.custom.*;
  * Created by icm_mobile on 2018/6/22.
  */
 
-public class OFFLine_Fragment extends Fragment implements RecyclerViewClickListener {
+public class OFFLine_Fragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -44,6 +44,8 @@ public class OFFLine_Fragment extends Fragment implements RecyclerViewClickListe
 
     List<Directory> mData = new ArrayList<>();
 
+    /*** 退回上一步，會pop掉當前的fragment。
+     * data若有做刪除等動作，data庫也必須做更新。下次拿到的data才會是正確的 */
     @SuppressLint("ResourceType")
     public void initModel() {
         Resources resources = context.getResources();
@@ -78,17 +80,7 @@ public class OFFLine_Fragment extends Fragment implements RecyclerViewClickListe
         /**action bar 標題更新*/
         MainActivity.Instance.updateToolbar(Pages.DIRECTORY_KXF);
 
-        /**滑動刪除功能*/
 
-        final SwipeController swipeController = new SwipeController();
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeController);
-        itemTouchHelper.attachToRecyclerView(mRecyclerView);
-        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-                swipeController.onDraw(c);
-            }
-        });
 
 //        ItemTouchHelper.SimpleCallback itemTouchCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
 //            @Override
@@ -118,12 +110,8 @@ public class OFFLine_Fragment extends Fragment implements RecyclerViewClickListe
 
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-
-        Fragment des = new Menu_2_Button_Fragment();
-
-
         Log.d("recyclerViewItemClicked","position - " + position+ " , " + ((TextView)v).getText() + "\r\n");
-
+        Fragment des = new Menu_2_Button_Fragment();
         if(des != null)
             MainActivity.Instance.switchFragment(this,des);
 

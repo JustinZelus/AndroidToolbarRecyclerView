@@ -31,12 +31,18 @@
 
     <!-- user library 頁面資料夾名稱 -->
     <array name="user_library_directory_name">
-        <item>Advanced Ignition Setting</item>
         <item>Default</item>
+        <item>Advanced Ignition Setting</item>
         <item>Hard Riding Surface</item>
         <item>Richer Fuel Setting</item>
     </array>
 
+    <array name="map_adjustment">
+        <item>EDIT DATA</item>
+        <item>IG EDIT DATA</item>
+        <item>MAP Point Setting</item>
+        <item>Memo Information</item>
+    </array>
 
     <array name="menu_3_button_Titles">
         <item>OFF Line</item>
@@ -74,5 +80,12 @@
     <integer-array name="menu_2_button_Ripples">
         <item>@drawable/ripple_sample</item>
         <item>@drawable/ripple_user_library</item>
+    </integer-array>
+
+    <integer-array name="map_adjustment_Ripples">
+        <item>@drawable/ripple_map_adjustment_0</item>
+        <item>@drawable/ripple_map_adjustment_1</item>
+        <item>@drawable/ripple_map_adjustment_2</item>
+        <item>@drawable/ripple_map_adjustment_3</item>
     </integer-array>
 </resources>

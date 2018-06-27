@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +23,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jzstudio.com.recyclerview.adapter.DirectoryAdapter;
-import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
+import jzstudio.com.recyclerview.custom.SwipeController;
+import jzstudio.com.recyclerview.custom.SwipeControllerActions;
+import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 import jzstudio.com.recyclerview.model.Directory;
 
 /**
  * Created by icm_mobile on 2018/6/22.
  */
 
-public class User_Library_Fragment extends Fragment implements RecyclerViewClickListener{
+public class User_Library_Fragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -67,6 +71,22 @@ public class User_Library_Fragment extends Fragment implements RecyclerViewClick
         mAdapter = new DirectoryAdapter(mData,(MainActivity)getContext(),this);
         mRecyclerView.setAdapter(mAdapter);
 
+        /**滑動刪除功能*/
+        final SwipeController swipeController = new SwipeController(new SwipeControllerActions() {
+            @Override
+            public void onRightClicked(int position) {
+                ((DirectoryAdapter) mAdapter).removeItem(position);
+            }
+        });
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeController);
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
+        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                swipeController.onDraw(c);
+            }
+        });
+
         /**action bar 標題更新*/
         MainActivity.Instance.updateToolbar(Pages.DIRECTORY_USER_LIBRARY);
         return v;
@@ -84,8 +104,8 @@ public class User_Library_Fragment extends Fragment implements RecyclerViewClick
 
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-
-
-
+        Fragment des = new Map_Adjustment_Fragment();
+        if(des != null)
+            MainActivity.Instance.switchFragment(this,des);
     }
 }

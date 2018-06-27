@@ -21,14 +21,14 @@ import java.util.List;
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.Pages;
 import jzstudio.com.recyclerview.adapter.DirectoryAdapter;
-import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
+import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 import jzstudio.com.recyclerview.model.Directory;
 
 /**
  * Created by icm_mobile on 2018/6/22.
  */
 
-public class Sample_Fragment extends Fragment implements RecyclerViewClickListener{
+public class Sample_Fragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -86,7 +86,8 @@ public class Sample_Fragment extends Fragment implements RecyclerViewClickListen
 
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-
-
+        Fragment des = new Map_Adjustment_Fragment();
+        if(des != null)
+            MainActivity.Instance.switchFragment(this,des);
     }
 }

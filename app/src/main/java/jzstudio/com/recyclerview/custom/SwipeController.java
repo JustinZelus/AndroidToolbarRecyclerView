@@ -5,7 +5,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -13,7 +15,8 @@ import static android.support.v7.widget.helper.ItemTouchHelper.*;
 
 
 
-public class SwipeController extends Callback {
+public class SwipeController extends  ItemTouchHelper.SimpleCallback {
+//public class SwipeController extends Callback {
 
     enum ButtonsState {
         GONE,
@@ -29,13 +32,14 @@ public class SwipeController extends Callback {
 
     private RecyclerView.ViewHolder currentItemViewHolder = null;
 
-//    private SwipeControllerActions buttonsActions = null;
+    private SwipeControllerActions buttonsActions = null;
 
     private static final float buttonWidth = 300;
 
-//    public SwipeController(SwipeControllerActions buttonsActions) {
-//        this.buttonsActions = buttonsActions;
-//    }
+    public SwipeController(SwipeControllerActions buttonsActions) {
+        super(0,ItemTouchHelper.LEFT);
+        this.buttonsActions = buttonsActions;
+    }
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -49,7 +53,7 @@ public class SwipeController extends Callback {
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-
+        Log.d("onSwiped"," " + viewHolder.getAdapterPosition());
     }
 
     @Override
@@ -63,7 +67,13 @@ public class SwipeController extends Callback {
 
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        Log.d("onSwiped"," " + viewHolder.getAdapterPosition());
+
         if (actionState == ACTION_STATE_SWIPE) {
+            //指定第0個不能刪除
+            if(viewHolder.getAdapterPosition() == 0)
+                return;
+
             if (buttonShowedState != ButtonsState.GONE) {
 //                if (buttonShowedState == ButtonsState.LEFT_VISIBLE) dX = Math.max(dX, buttonWidth);
                 if (buttonShowedState == ButtonsState.RIGHT_VISIBLE) dX = Math.min(dX, -buttonWidth);
@@ -126,14 +136,12 @@ public class SwipeController extends Callback {
                     setItemsClickable(recyclerView, true);
                     swipeBack = false;
 
-//                    if (buttonsActions != null && buttonInstance != null && buttonInstance.contains(event.getX(), event.getY())) {
-//                        if (buttonShowedState == ButtonsState.LEFT_VISIBLE) {
-//                            buttonsActions.onLeftClicked(viewHolder.getAdapterPosition());
-//                        }
-//                        else if (buttonShowedState == ButtonsState.RIGHT_VISIBLE) {
-//                            buttonsActions.onRightClicked(viewHolder.getAdapterPosition());
-//                        }
-//                    }
+                    if (buttonsActions != null && buttonInstance != null && buttonInstance.contains(event.getX(), event.getY())) {
+
+                        if (buttonShowedState == ButtonsState.RIGHT_VISIBLE) {
+                            buttonsActions.onRightClicked(viewHolder.getAdapterPosition());
+                        }
+                    }
                     buttonShowedState = ButtonsState.GONE;
                     currentItemViewHolder = null;
                 }
@@ -161,7 +169,7 @@ public class SwipeController extends Callback {
         p.setColor(Color.RED);
 //        c.drawRoundRect(rightButton, corners, corners, p);
         c.drawRect(rightButton,p);
-        drawText("Delete", c, rightButton, p);
+        drawText("DELETE", c, rightButton, p);
 
         buttonInstance = null;
 

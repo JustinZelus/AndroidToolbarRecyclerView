@@ -5,4 +5,9 @@
     <string name="title_directory_kxf">Please select</string>
     <string name="title_directory_sample">Please select</string>
     <string name="title_directory_user_library">Please select</string>
+
+    <string name="map_adjustment_1">EDIT DATA</string>
+    <string name="map_adjustment_2">IG EDIT DATA</string>
+    <string name="map_adjustment_3">MAP Point Setting</string>
+    <string name="map_adjustment_4">Memo Information</string>
 </resources>

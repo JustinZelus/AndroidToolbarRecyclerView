@@ -13,7 +13,7 @@ import com.jzstudio.toolbar.recyclerview.R;
 import java.util.List;
 
 import jzstudio.com.recyclerview.MainActivity;
-import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
+import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 
 import jzstudio.com.recyclerview.model.Directory;
 
@@ -26,7 +26,7 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
     List<Directory> mData;
     int width = 0;
     Context context;
-    static RecyclerViewClickListener mRecyclerViewClickListener;
+    static IRecyclerViewClickListener mRecyclerViewClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -46,7 +46,7 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
 
 
 
-    public DirectoryAdapter(List<Directory> mData, MainActivity activity, RecyclerViewClickListener mRecyclerViewClickListener) {
+    public DirectoryAdapter(List<Directory> mData, MainActivity activity, IRecyclerViewClickListener mRecyclerViewClickListener) {
         this.mData = mData;
         this.context = activity;
         this.mRecyclerViewClickListener = mRecyclerViewClickListener;

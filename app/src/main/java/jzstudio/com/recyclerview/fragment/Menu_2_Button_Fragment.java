@@ -24,7 +24,7 @@ import java.util.List;
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.Pages;
 import jzstudio.com.recyclerview.adapter.MenuAdapter;
-import jzstudio.com.recyclerview.interfaces.RecyclerViewClickListener;
+import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 import jzstudio.com.recyclerview.model.Menu;
 
 
@@ -35,12 +35,11 @@ import jzstudio.com.recyclerview.model.Menu;
  * 按鈕的數量參考至values/arrays.xml中的menuTitles數量
  */
 
-public class Menu_2_Button_Fragment extends Fragment implements RecyclerViewClickListener {
+public class Menu_2_Button_Fragment extends Fragment implements IRecyclerViewClickListener {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-//    MyMenu myDataset;
     Context context;
 
     List<Menu> mData = new ArrayList<>();

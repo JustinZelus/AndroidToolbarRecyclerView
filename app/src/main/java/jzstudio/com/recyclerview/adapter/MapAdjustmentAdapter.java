@@ -60,7 +60,6 @@ public class MapAdjustmentAdapter extends RecyclerView.Adapter<MapAdjustmentAdap
     @Override
     public MapAdjustmentAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.map_adjustment_view2,parent,false);
-
         //將view的高度減半
         int height = parent.getMeasuredHeight() / 2;
         v.getLayoutParams().height = height;

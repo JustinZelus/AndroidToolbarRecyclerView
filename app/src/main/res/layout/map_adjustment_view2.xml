@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    android:background="@drawable/gradient_black"
     >
     <TextView
         android:id="@+id/tv_view"
@@ -10,9 +12,9 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="default "
-        android:textSize="24sp"
-        android:textColor="#000000"
+        android:text="@string/map_adjustment_3"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
         android:clickable="true"
         />
 </FrameLayout>

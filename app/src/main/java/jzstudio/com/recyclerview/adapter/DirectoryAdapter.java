@@ -1,6 +1,7 @@
 package jzstudio.com.recyclerview.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,14 +28,17 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
     int width = 0;
     Context context;
     static IRecyclerViewClickListener mRecyclerViewClickListener;
+    private boolean isAddBackground = false;
+    private boolean isAddTypeface = true;
+    Typeface font;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         // each data item is just a string in this case
         public TextView mTextView;
-        public ViewHolder(TextView v) {
+        public ViewHolder(View v) {
             super(v);
-            mTextView = v;
+            mTextView = v.findViewById(R.id.tv_view);
             mTextView.setOnClickListener(this);
         }
 
@@ -50,20 +54,25 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
         this.mData = mData;
         this.context = activity;
         this.mRecyclerViewClickListener = mRecyclerViewClickListener;
+        this.font = Typeface.createFromAsset(activity.getAssets(),"fonts/sports_world_regular.ttf");
     }
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TextView tv = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.directory_text_view,parent,false);
-        ViewHolder viewHolder = new ViewHolder(tv);
+        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.directory_cardview,parent,false);
+        ViewHolder viewHolder = new ViewHolder(v);
         return  viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.mTextView.setText(mData.get(position).getTitle());
-        holder.mTextView.setBackground(mData.get(position).getBackground());
+        holder.mTextView.setTextColor(context.getResources().getColor(R.color.directory));
+        if(isAddTypeface)
+            holder.mTextView.setTypeface(font);
+        if(isAddBackground)
+            holder.mTextView.setBackground(mData.get(position).getBackground());
 //        holder.mTextView.setBackground( (position % 2) == 0 ? mData.get(position).getBackground_0() : mData.get(position).getBackground_1());
 
 

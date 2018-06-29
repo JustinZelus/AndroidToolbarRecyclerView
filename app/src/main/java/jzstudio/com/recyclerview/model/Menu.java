@@ -12,6 +12,7 @@ public class Menu {
     String mTitle;
     Drawable mBackground;
 
+
     public Menu(String mTitle, Drawable mBackground) {
         this.mTitle = mTitle;
         this.mBackground = mBackground;

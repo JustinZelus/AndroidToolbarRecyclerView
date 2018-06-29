@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:gravity="center"
+    android:layout_marginRight="20dp"
     android:text="Default"
     android:background="@drawable/gradient_black"
     android:textSize="24sp"
-    android:layout_marginRight="2dp"
     android:textStyle="normal"
     android:textColor="#ffffff" />

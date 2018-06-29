@@ -1,6 +1,7 @@
 package jzstudio.com.recyclerview.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -29,6 +30,9 @@ public class MapAdjustmentAdapter extends RecyclerView.Adapter<MapAdjustmentAdap
     List<Menu> mData;
     Context context;
     static IRecyclerViewClickListener mRecyclerViewClickListener;
+    private boolean isAddBackground = false;
+    private boolean isAddTypeface = true;
+    Typeface font;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView mTextView;
@@ -43,6 +47,7 @@ public class MapAdjustmentAdapter extends RecyclerView.Adapter<MapAdjustmentAdap
         @Override
         public void onClick(View v) {
             Log.d("MapAdjustmentAdapter"," " + this.getAdapterPosition());
+            mRecyclerViewClickListener.recyclerViewItemClicked(v,this.getAdapterPosition());
         }
     }
 
@@ -55,6 +60,7 @@ public class MapAdjustmentAdapter extends RecyclerView.Adapter<MapAdjustmentAdap
         DisplayMetrics displayMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         this.height = displayMetrics.heightPixels;
+        this.font = Typeface.createFromAsset(activity.getAssets(),"fonts/clean_sports.ttf");
     }
 
     @Override
@@ -74,7 +80,10 @@ public class MapAdjustmentAdapter extends RecyclerView.Adapter<MapAdjustmentAdap
         Log.d("onBindViewHolder ","" + position);
 
         holder.mTextView.setText(mData.get(position).getTitle());
-        holder.mTextView.setBackground(mData.get(position).getBackground());
+        if(isAddTypeface)
+            holder.mTextView.setTypeface(font);
+        if(isAddBackground)
+            holder.mTextView.setBackground(mData.get(position).getBackground());
     }
 
     @Override

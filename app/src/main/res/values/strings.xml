@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Kawasaki</string>
+
+    <string name="offline_edit_data">EDIT DATA Advanced Ignition Setting</string>
+
     <string name="title_menu_3_button">Menu</string>
     <string name="title_menu_2_button">Menu</string>
     <string name="title_directory_kxf">Please select</string>
@@ -8,6 +11,6 @@
 
     <string name="map_adjustment_1">EDIT DATA</string>
     <string name="map_adjustment_2">IG EDIT DATA</string>
-    <string name="map_adjustment_3">MAP Point Setting</string>
-    <string name="map_adjustment_4">Memo Information</string>
+    <string name="map_adjustment_3">MAP Point \n Setting</string>
+    <string name="map_adjustment_4">Memo \n Information</string>
 </resources>

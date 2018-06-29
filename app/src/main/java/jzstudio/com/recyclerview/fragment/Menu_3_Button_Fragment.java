@@ -53,7 +53,7 @@ public class Menu_3_Button_Fragment extends Fragment implements IRecyclerViewCli
         String[] titles = resources.getStringArray(R.array.menu_3_button_Titles);
         TypedArray backgrounds = resources.obtainTypedArray(R.array.menu_3_button_Ripples);
 
-        for(int i = 0; i < titles.length; i++) {
+        for(int i = 0; i < 2; i++) {
             mData.add(new Menu( titles[i] , backgrounds.getDrawable(i)));
         }
     }

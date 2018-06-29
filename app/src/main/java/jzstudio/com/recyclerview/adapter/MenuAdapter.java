@@ -1,6 +1,7 @@
 package jzstudio.com.recyclerview.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -28,6 +29,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     List<Menu> mData;
     Context context;
     static IRecyclerViewClickListener mRecyclerViewClickListener;
+    Typeface font;
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -55,7 +58,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         this.width = displayMetrics.widthPixels;
-
+        this.font = Typeface.createFromAsset(activity.getAssets(),"fonts/clean_sports.ttf");
     }
 
 
@@ -69,8 +72,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.mTextView.setText(mData.get(position).getTitle());
+        holder.mTextView.setTypeface(font);
         holder.mTextView.getLayoutParams().width = width/mData.size();
-        holder.mTextView.setBackground(mData.get(position).getBackground());
+//        holder.mTextView.setBackground(mData.get(position).getBackground());
         //        holder.mTextView.setBackgroundColor(mDataset.getColors()[position]);
 
 

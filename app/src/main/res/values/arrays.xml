@@ -1,21 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--Table offline edit data , Advanced Ignition Setting-->
+    <array name="table_offline_edit_data">
+        <!--row0-->
+        <item>0</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <!--row1-->
+        <item>10</item>
+        <item>2</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <!--row2-->
+        <item>20</item>
+        <item>41</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <!--row3-->
+        <item>30</item>
+        <item>2</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>10</item>
+        <item>0</item>
+        <!--row4-->
+        <item>40</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>10</item>
+        <item>0</item>
+        <!--row5-->
+        <item>60</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>5</item>
+        <item>5</item>
+        <item>0</item>
+        <!--row6-->
+        <item>80</item>
+        <item>0</item>
+        <item>0</item>
+        <item>10</item>
+        <item>2</item>
+        <item>3</item>
+        <item>0</item>
+    </array>
 
     <!-- offline 頁面資料夾名稱 -->
     <array name="offline_directory_name">
-        <item>\'09~\'11 KX450F</item>
-        <item>\'11~\'12 KX250F</item>
-        <item>\'12 KX450F</item>
-        <item>\'13 KX250F</item>
-        <item>\'13~\'15 KX450F</item>
-        <item>\'14 KX250F</item>
-        <item>\'16 KX450F</item>
-        <item>test1</item>
-        <item>test2</item>
-        <item>test3</item>
-        <item>test4</item>
-        <item>test5</item>
+        <item>\'09~\'11 \t\tKX450F</item>
+        <item>\'11~\'12 \t\tKX250F</item>
+        <item>\'12 \t\tKX450F</item>
+        <item>\'13 \t\tKX250F</item>
+        <item>\'13~\'15 \t\tKX450F</item>
+        <item>\'14 \t\tKX250F</item>
+        <item>\'16 \t\tKX450F</item>
+        <!--<item>test1</item>-->
+        <!--<item>test2</item>-->
+        <!--<item>test3</item>-->
+        <!--<item>test4</item>-->
+        <!--<item>test5</item>-->
     </array>
 
     <!-- sample 頁面資料夾名稱 -->
@@ -45,8 +103,8 @@
     </array>
 
     <array name="menu_3_button_Titles">
-        <item>OFF Line</item>
-        <item>ON Line</item>
+        <item>OFFLine</item>
+        <item>ONLine</item>
         <item>Setup</item>
     </array>
 

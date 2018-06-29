@@ -12,6 +12,7 @@ public class Pages {
     public static final String DIRECTORY_KXF = "Directory";
     public static final String DIRECTORY_SAMPLE = "Directory_Sample";
     public static final String DIRECTORY_USER_LIBRARY = "Directory_User_Library";
+
 //    public static final int DIRECTORY = 0;
 //    public static final int Temperature = 1;
 //    public static final int Setup = 2;

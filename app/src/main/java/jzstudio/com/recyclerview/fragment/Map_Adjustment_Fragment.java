@@ -8,13 +8,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.jzstudio.toolbar.recyclerview.R;
 
@@ -24,7 +21,6 @@ import java.util.List;
 import jzstudio.com.recyclerview.MainActivity;
 import jzstudio.com.recyclerview.Pages;
 import jzstudio.com.recyclerview.adapter.MapAdjustmentAdapter;
-import jzstudio.com.recyclerview.adapter.MenuAdapter;
 import jzstudio.com.recyclerview.interfaces.IRecyclerViewClickListener;
 import jzstudio.com.recyclerview.model.Menu;
 
@@ -89,9 +85,18 @@ public class Map_Adjustment_Fragment extends Fragment implements IRecyclerViewCl
         super.onDestroy();
     }
 
-    //Offline,Online,Setup 三顆按鈕的響應
+
     @Override
     public void recyclerViewItemClicked(View v, int position) {
-
+        Fragment des = null;
+        switch (position) {
+            case 0 :
+                des = new Table_Offline_Edit_Data_Fragment();
+                break;
+            default:
+                break;
+        }
+        if(des != null)
+            MainActivity.Instance.switchFragment(this,des);
     }
 }

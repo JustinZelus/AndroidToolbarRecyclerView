@@ -95,8 +95,11 @@ public class Table_Offline_Edit_Data_Fragment extends Fragment implements IRecyc
 //        mRecyclerView.addItemDecoration(new LinearDividerItemDecoration(context,((MainActivity)context).getResources().getColor(R.color.colorAccent), 44));
         mAdapter = new TableAdapter(mData , getContext() ,this);
         mRecyclerView.setAdapter(mAdapter);
-        seekBar.setMax(100);
-        seekBar.setMin(0);
+
+//        seekBar.setMax(100);
+//        seekBar.setMin(0);
+//        seekBar.setMin();
+
         seekBar.setProgress(50);
         tvSeekbarValue.setText(""+0);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

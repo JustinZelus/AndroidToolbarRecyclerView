@@ -75,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
-
+    
+    /** 2018/08/20 
+     *  切換頁面
+     */
     public void switchFragment(Fragment destFragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
